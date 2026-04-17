@@ -1,0 +1,4 @@
+{"type":"server-started","port":64126,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:64126","screen_dir":"/Users/nathanjohnson/personal/projects/personal-dashboard/.superpowers/brainstorm/58450-1776285710/content","state_dir":"/Users/nathanjohnson/personal/projects/personal-dashboard/.superpowers/brainstorm/58450-1776285710/state"}
+{"type":"screen-added","file":"/Users/nathanjohnson/personal/projects/personal-dashboard/.superpowers/brainstorm/58450-1776285710/content/layout-options.html"}
+{"type":"screen-added","file":"/Users/nathanjohnson/personal/projects/personal-dashboard/.superpowers/brainstorm/58450-1776285710/content/waiting.html"}
+{"type":"server-stopped","reason":"idle timeout"}
