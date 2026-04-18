@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/sqlite';
-import { createInviteToken } from '@/lib/auth';
 
 /**
  * GET /api/auth/bootstrap
