@@ -1,23 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/sqlite';
 
 /**
  * GET /api/auth/bootstrap
  *
  * Creates a first-user invite token if no users exist (or only the system user).
- * Returns 403 if real users already exist — UNLESS ?reset=triptych-reset-2026
- * is passed, which wipes all users and sessions first.
+ * Returns 403 if real users already exist.
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   const db = getDb();
-  const resetSecret = request.nextUrl.searchParams.get('reset');
-
-  // If reset secret provided, wipe all users and sessions
-  if (resetSecret === 'triptych-reset-2026') {
-    db.prepare('DELETE FROM sessions').run();
-    db.prepare("DELETE FROM users WHERE name != 'system'").run();
-    db.prepare('DELETE FROM invite_tokens WHERE used_by IS NOT NULL').run();
-  }
 
   // Check if real users exist (exclude system user)
   const userCount = db.prepare("SELECT COUNT(*) as count FROM users WHERE name != 'system'").get() as { count: number };
